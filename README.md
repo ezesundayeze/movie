@@ -13,6 +13,10 @@ This is a simple application that allows you create and see a list of movies wit
 pip install requirement.txt
 ```
 
+UI Sample
+* Home
+![Alt](/home.png "Home Page")
+
 ## Usage
 
 ```bash
