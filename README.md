@@ -16,6 +16,12 @@ pip install requirement.txt
 UI Sample
 * Home
 ![Alt](/home.png "Home Page")
+ 
+* List 
+![Alt](/molist.png "List of Movies")  
+
+* Create Movies
+![Alt](/mocreate.png "Create Movies")
 
 ## Usage
 
