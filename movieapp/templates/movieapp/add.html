@@ -1,0 +1,77 @@
+{% extends 'movieapp/base.html' %}
+
+{% block content %}
+
+<div class="content container">
+
+	             {% if form.errors %}
+                    <div class="col-sm-12">
+                                {% for error, value in form.errors.items %}
+                                <div class="alert  alert-danger alert-dismissible fade show text-center" role="alert">
+                                        <li class="list-group-item">{%if error != "__all__"%} {{error}} {%endif%} {{ value }}</li>    
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                {% endfor %}
+                            </div>
+					{% endif %}
+
+                      <form method="POST"> 
+									{% csrf_token %}
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label class="col-form-label">Movie Title <span class="text-danger">*</span></label>
+												{{form.title}}
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label class="col-form-label">Length</label>
+												{{form.length}}
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label class="col-form-label">Director</label>
+												{{form.director_name}}
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label class="col-form-label">Language </label>
+												{{form.language}}
+											</div>
+										</div>
+								
+										<div class="col-sm-6">  
+											<div class="form-group">
+												<label class="col-form-label">Year</label>
+												<div class="cal-icon">
+													{{form.year}}
+												</div>
+											</div>
+										</div>
+
+												</div>
+								
+										<div class="col-sm-6">  
+											<div class="form-group">
+												<button class="btn btn-primary" type="submit">Submit</button>
+											</div>
+										</div>
+								</form>
+
+								
+								{% if messages %}
+								<div class="messages">
+									{% for message in messages %}
+									<p class ="text text-success"> {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+									{% endfor %}
+								</div>
+								{% endif %}
+</div>
+{% endblock content %}
+
+				

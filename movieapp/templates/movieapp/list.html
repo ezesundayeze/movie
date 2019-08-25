@@ -1,0 +1,37 @@
+{% extends 'movieapp/base.html' %}
+
+{% block content %}
+
+<div class="content container">
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Director</th>
+      <th scope="col">Year</th>
+      <th scope="col">Language</th>
+      <th scope="col">Length</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for movie in  movies %}
+    <tr>
+      <td>{{movie.title}}</td>
+      <td>{{movie.director_name}}</td>
+      <td>{{movie.year}}</td>
+      <td>{{movie.language}}</td>
+      <td>{{movie.length}} Hours</td>
+    </tr>
+  {% empty %}
+  <p> No Movie Has been added yet</p>
+  {% endfor %}
+
+</table>
+
+           
+</div>
+{% endblock content %}
+
+				
+
