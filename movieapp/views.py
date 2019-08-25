@@ -11,10 +11,16 @@ class MovieCreateView(View):
     form = MovieForm
 
     def get(self, request):
+        """
+        This function displays the form
+        """
         args = {"form":self.form}
         return render(request, self.template_name, args)
         
     def post(self, request):
+        """
+        this function creates the movie
+        """
         form = self.form(request.POST or None)
         if form.is_valid():
             form.save()
@@ -27,6 +33,9 @@ class MovieListView(View):
     template_name = "movieapp/list.html"
 
     def get(self, request):
+        """
+        Displays a list of movies
+        """
         movies = Movie.objects.filter()
         args = {"movies":movies}
         return render(request, self.template_name, args)
